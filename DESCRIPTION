@@ -1,14 +1,14 @@
 Package: DiagCheck
 Title: Diagnostic check for various regression model
 Version: 1.0
-Description: This package contain a function for diagnostic an regression model with purpose to ensures that created model does a good job by evaluating various matrices.
+Description: This package contains a function for diagnosing a regression model, ensuring its effectiveness by evaluating various metrics.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
-Author: Najib [aut, cre],
-  Naufal [aut],
-  Azra [aut],
-  Brikca [aut],
-  Farsya [aut]
-Maintainer: Najib <muhammadnajibsalman2005@mail.ugm.ac.id>
+Author: Farsya Alaika (23/511982/PA/21861) [aut],
+  Brikca Kristal Desfingka (23/512108/PA/21869) [aut],
+  Naufal Arif Nur Firdaus (23/512670/PA/21895) [aut],
+  Muhammad Najib Salman (23/518085/PA/22235) [aut],
+  Muhamad Azra Qudratullah (23/520097/PA/22341) [aut]
+Maintainer: Najib <najibsalman3011@gmail.com>
