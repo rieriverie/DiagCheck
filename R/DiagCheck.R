@@ -468,7 +468,7 @@ DCfunction = function(model, type){
     }
     cat("_______________________________________________________________\n\n")
 
-    if (count/3 >= 0.5) {
+    if (count/4 >= 0.5) {
       cat("CONCLUSION:\nDiagnostic Check is", bold("Satisfied\n"))
       cat("The model is robust.")
     } else {
