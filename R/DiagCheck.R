@@ -416,22 +416,33 @@ DCfunction = function(model, type){
     }
     cat("_______________________________________________________________\n")
 
-    cat("3. Deviance Residuals:\n")
-    deviance = model$deviance
-    df = model$df.residual
-    p.value = pchisq(deviance, df, lower.tail = FALSE)
-    `Deviance Residuals` = ifelse(p.value > alpha, "YES", "NO")
+    cat("3. Normality of Residuals :\n")
+    residual = length(model$residuals)
+    if (residual<50){
+      test = shapiro.test(model$residuals)
+      name = "Shapiro-Wilk"
+      P.value = test$p.value
+    } else {
+      test = ks.test(model$residuals,"pnorm")
+      name = "Kolmogorov-Smirnov"
+      P.value = test$p.value
+    }
+    if(P.value<alpha){
+      Normality = "NO"
+    } else {
+      Normality = "YES"
+    }
     output = data.frame(
-      Deviance = deviance,
-      DF = df,
-      P.value = p.value,
-      `Deviance Residuals`
+      Test = name,
+      P.value,
+      Normality
     )
+    output$Test = format(output$Test, digits = 6)
     print(output, row.names = FALSE)
-    if (`Deviance Residuals` == "YES") {
+    if(Normality=="YES"){
       cat(bold("This assumption is fulfilled\n"))
       count = count + 1
-    } else {
+    } else{
       cat(bold("This assumption is not fulfilled\n"))
     }
     cat("_______________________________________________________________\n")
@@ -457,7 +468,7 @@ DCfunction = function(model, type){
     }
     cat("_______________________________________________________________\n\n")
 
-    if (count/4 >= 0.5) {
+    if (count/3 >= 0.5) {
       cat("CONCLUSION:\nDiagnostic Check is", bold("Satisfied\n"))
       cat("The model is robust.")
     } else {
@@ -466,7 +477,3 @@ DCfunction = function(model, type){
   }
 
 }
-
-
-
-
