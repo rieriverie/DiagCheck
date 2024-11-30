@@ -15,7 +15,7 @@
 #' #Polynomial Regression Model
 #' hp2 = mtcars$hp^2
 #' hp3 = mtcars$hp^3
-#' model <- lm(mpg~hp+hp2+hp3, mtcars) #do not create the model using poly() to avoid errors
+#' model <- lm(mpg~hp+hp2+hp3, mtcars) #do not create the model using "poly()" to avoid errors
 #' DCfunction(model, "polynomial")
 #' #Logistic Regression Model
 #' model <- glm(am~mpg+hp, family = "binomial", data = mtcars)
