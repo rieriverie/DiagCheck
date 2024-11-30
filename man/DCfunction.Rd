@@ -18,9 +18,17 @@ yields the evaluation matrices and the conclusion.
 This package contains a function for diagnosing a regression model, ensuring its effectiveness by evaluating various metrics.
 }
 \examples{
+#Simple Linear Regression Model
+model <- lm(mpg~qsec, mtcars)
+DCfunction(model, "simple")
 #Multiple Linear Regression Model
 model <- lm(mpg~cyl+disp+hp+drat+wt+qsec, mtcars)
 DCfunction(model, "multiple")
+#Polynomial Regression Model
+hp2 = mtcars$hp^2
+hp3 = mtcars$hp^3
+model <- lm(mpg~hp+hp2+hp3, mtcars) #do not create the model using poly() to avoid errors
+DCfunction(model, "polynomial")
 #Logistic Regression Model
 model <- glm(am~mpg+hp, family = "binomial", data = mtcars)
 DCfunction(model, "logistic")
