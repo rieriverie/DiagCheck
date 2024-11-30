@@ -234,7 +234,7 @@ DCfunction = function(model, type){
       cat(bold("This assumption is not fulfilled\n"))
     }
     cat("_______________________________________________________________\n\n")
-    if (count/5>=0.5){
+    if (count/6>=0.5){
       cat("CONCLUSION:\nDiagnostic Check is", bold("Satisfied\n"))
       cat("The model is robust.")
     } else{
@@ -368,7 +368,6 @@ DCfunction = function(model, type){
   else if (type == "logistic") {
     count = 0
     cat("1. Goodness-of-Fit Test:\n")
-    # Uji Hosmer-Lemeshow
     Test = hoslem.test(model$y, fitted(model))
     P.value = Test$p.value
     if (P.value < alpha) {
@@ -477,3 +476,7 @@ DCfunction = function(model, type){
   }
 
 }
+
+
+
+
