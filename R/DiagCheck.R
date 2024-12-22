@@ -47,7 +47,7 @@ DCfunction = function(model, type){
       name = "Shapiro-Wilk"
       P.value = test$p.value
     } else {
-      test = ks.test(model$residuals,"pnorm")
+      test = ks.test(model$residuals,"pnorm",mean(model$residuals), sd(model$residuals))
       name = "Kolmogorov-Smirnov"
       P.value = test$p.value
     }
